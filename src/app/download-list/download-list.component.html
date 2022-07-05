@@ -11,7 +11,7 @@
     </tr>
     <tr *ngFor="let file of files">
       <td>
-        <input type="checkbox" name="" />
+        <input (click)="toggleSelection(file)" type="checkbox" name="" />
       </td>
       <td>
         {{ file.name }}
@@ -28,3 +28,5 @@
     </tr>
   </table>
 </div>
+
+{{ selectedFiles | json }}
