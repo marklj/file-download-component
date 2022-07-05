@@ -1,1 +1,30 @@
-<p>download-list works!</p>
+<div>
+  <table class="file-table">
+    <tr>
+      <th>
+        <!-- checked -->
+      </th>
+      <th>Name</th>
+      <th>Device</th>
+      <th>Path</th>
+      <th>Status</th>
+    </tr>
+    <tr *ngFor="let file of files">
+      <td>
+        <input type="checkbox" name="" />
+      </td>
+      <td>
+        {{ file.name }}
+      </td>
+      <td>
+        {{ file.device }}
+      </td>
+      <td>
+        {{ file.path }}
+      </td>
+      <td>
+        <span class="case-capitalize">{{ file.status }}</span>
+      </td>
+    </tr>
+  </table>
+</div>
