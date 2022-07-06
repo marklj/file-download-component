@@ -1,7 +1,25 @@
 <div>
+  <div class="file-table-meta flex">
+    <div class="checkbox-col">
+      <input
+        type="checkbox"
+        [indeterminate]="
+          files.length > selectedFiles.length && selectedFiles.length > 0
+        "
+        [checked]="selectedFiles.length === files.length"
+      />
+    </div>
+    <div *ngIf="selectedFiles.length">Selected {{ selectedFiles.length }}</div>
+    <div *ngIf="!selectedFiles.length">None Selected</div>
+    <div>
+      <button (click)="downloadSelectedFiles()" type="button">
+        Download Selected
+      </button>
+    </div>
+  </div>
   <table class="file-table">
     <tr>
-      <th>
+      <th class="checkbox-col">
         <!-- checked -->
       </th>
       <th>Name</th>
@@ -9,9 +27,17 @@
       <th>Path</th>
       <th>Status</th>
     </tr>
-    <tr *ngFor="let file of files">
+    <tr
+      *ngFor="let file of files"
+      (click)="toggleSelection(file)"
+      [ngClass]="{ 'row-selected': fileIsSelected(file) }"
+    >
       <td>
-        <input (change)="toggleSelection(file)" type="checkbox" name="" />
+        <input
+          [checked]="fileIsSelected(file)"
+          type="checkbox"
+          class="inactive-checkbox"
+        />
       </td>
       <td>
         {{ file.name }}
@@ -22,7 +48,13 @@
       <td>
         {{ file.path }}
       </td>
-      <td>
+      <td class="flex">
+        <div
+          class="available-dot"
+          [ngClass]="{ 'dot-active': file.status === 'available' }"
+        >
+          &nbsp;
+        </div>
         <span class="case-capitalize">{{ file.status }}</span>
       </td>
     </tr>

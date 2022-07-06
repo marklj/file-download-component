@@ -1,5 +1,11 @@
-body{}
+body{
+  font-family: Arial, Helvetica, sans-serif;
+}
 
 .case-capitalize {
   text-transform: capitalize;
+}
+
+.flex {
+  display: flex;
 }
