@@ -38,16 +38,12 @@ export class DownloadListComponent implements OnInit {
   }
 
   downloadSelectedFiles() {
+    if (!this.selectedFiles.length) return;
     if (this.selectedFiles.find((file) => file.status === 'scheduled')) {
       alert(
         'Only Available files can be downloaded. Please refine your selection.'
       );
     }
-    console.log(
-      'Downloading:',
-      this.selectedFiles.length
-        ? this.selectedFiles.map((f) => f.name).join(', ')
-        : 'NONE'
-    );
+    alert(this.selectedFiles.map((f) => `${f.path} - ${f.device}`).join(', '));
   }
 }
