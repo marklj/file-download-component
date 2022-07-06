@@ -1,5 +1,5 @@
 {
-  "name": "crowdstrike-component",
+  "name": "file-download",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
