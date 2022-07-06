@@ -23,6 +23,14 @@ export class DownloadListComponent implements OnInit {
     }
   }
 
+  toggleSelectAll() {
+    if (this.selectedFiles.length < this.files.length) {
+      this.selectedFiles = this.files;
+    } else {
+      this.selectedFiles = [];
+    }
+  }
+
   fileIsSelected(file: FileItem) {
     return this.selectedFiles.find((selectedFile) => {
       return file.path === selectedFile.path;
