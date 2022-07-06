@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FileItem } from '../@models/fileItem.model';
-
 @Component({
   selector: 'app-download-list',
   templateUrl: './download-list.component.html',
@@ -28,5 +27,17 @@ export class DownloadListComponent implements OnInit {
     return this.selectedFiles.find((selectedFile) => {
       return file.path === selectedFile.path;
     });
+  }
+
+  downloadSelectedFiles() {
+    if (this.selectedFiles.find((file) => file.status === 'scheduled')) {
+      alert(
+        'Only Available files can be downloaded. Please refine your selection.'
+      );
+    }
+    console.log(
+      'Downloading:',
+      this.selectedFiles.map((f) => f.name).join(', ')
+    );
   }
 }
