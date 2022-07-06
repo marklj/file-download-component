@@ -45,7 +45,9 @@ export class DownloadListComponent implements OnInit {
     }
     console.log(
       'Downloading:',
-      this.selectedFiles.map((f) => f.name).join(', ')
+      this.selectedFiles.length
+        ? this.selectedFiles.map((f) => f.name).join(', ')
+        : 'NONE'
     );
   }
 }
