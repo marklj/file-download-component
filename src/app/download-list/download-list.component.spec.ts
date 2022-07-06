@@ -8,9 +8,8 @@ describe('DownloadListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DownloadListComponent ]
-    })
-    .compileComponents();
+      declarations: [DownloadListComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(DownloadListComponent);
     component = fixture.componentInstance;
@@ -19,5 +18,9 @@ describe('DownloadListComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should toggle selected downloadable items', () => {
+    expect(component.selectedFiles).toEqual([]);
   });
 });
