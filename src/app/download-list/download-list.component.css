@@ -1,16 +1,21 @@
 .file-table {
   width: 100%;
+  margin-left: .5rem;
   font-size: .8rem;
   border-spacing: 0;
+  border-collapse: collapse;
 }
-.file-table td, .file-table th, .file-table tr {
-  margin: 0;
-  padding: 0;
+.file-table tr {
+  border-top: 1px solid #ccc;
+}
+.file-table td {
+  padding: .5rem 0 .5rem 0;
 }
 .file-table th {
   text-align: left;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: normal;
+  padding: .5rem 0 .5rem 0;
 }
 .file-table tr:hover {
   cursor: pointer;
@@ -36,3 +41,15 @@
 .row-selected {
   background-color: #ddd;
 }
+
+.file-table-meta {
+  margin-bottom: 1rem;
+  margin-left: .5rem;
+}
+
+.download-button {
+  margin-left: 3rem;
+  cursor: pointer;
+}
+
+
