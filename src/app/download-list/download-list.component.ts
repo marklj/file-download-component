@@ -43,6 +43,7 @@ export class DownloadListComponent implements OnInit {
       alert(
         'Only Available files can be downloaded. Please refine your selection.'
       );
+      return;
     }
     alert(this.selectedFiles.map((f) => `${f.path} - ${f.device}`).join(', '));
   }
